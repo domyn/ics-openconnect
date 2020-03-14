@@ -15,6 +15,8 @@ RUN apt update && \
         curl python libncurses5 \
         # gnutls fix
         pkgconf libtasn1-6-dev libunistring-dev libunbound-dev libp11-kit-dev autogen texinfo \
+        # openconnect
+        gettext \
         # My own additions
         git unzip
 
