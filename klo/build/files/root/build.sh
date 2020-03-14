@@ -5,11 +5,13 @@ set -eux
 git config --global user.email 'docker-builder@example.com'
 git config --global user.name 'Docker Builder'
 
-# Build compoents
+# Init source
 cd /mnt/ics-openconnect
 git submodule init
 git submodule update
 make -C external
+
+# Patch app
 
 # Compile app
 cd /mnt/ics-openconnect
