@@ -67,6 +67,12 @@ RUN yes | sdkmanager --sdk_root="${ANDROID_HOME}" --licenses
 #RUN alias sdkmanager='sdkmanager --sdk_root="${ANDROID_HOME}"'
 
 
+
+# Install Gradle
+# Downloading https://services.gradle.org/distributions/gradle-4.1-all.zip
+# Unzipping /root/.gradle/wrapper/dists/gradle-4.1-all/bzyivzo6n839fup2jbap0tjew/gradle-4.1-all.zip to /root/.gradle/wrapper/dists/gradle-4.1-all/bzyivzo6n839fup2jbap0tjew
+# Set executable permissions for: /root/.gradle/wrapper/dists/gradle-4.1-all/bzyivzo6n839fup2jbap0tjew/gradle-4.1/bin/gradle
+
 # Inject custom files
 COPY files/ /
 
