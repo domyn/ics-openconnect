@@ -1,1 +1,2 @@
+include ':openconnect'
 include ':app'
