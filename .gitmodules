@@ -1,7 +1,7 @@
 [submodule "external/openconnect"]
 	path = external/openconnect
-	url = git@github.com:klo2k/openconnect.git
-	branch = android_10_connect_crash_fix
+	url = git@github.com:openconnect/openconnect.git
+	tag = v8.10
 [submodule "external/stoken"]
 	path = external/stoken
 	url = https://github.com/cernekee/stoken
