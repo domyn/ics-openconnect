@@ -25,7 +25,6 @@
 
 package app.openconnect;
 
-import app.openconnect.core.X509Utils;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -91,22 +90,6 @@ public class FileSelectLayout extends LinearLayout implements OnClickListener {
 
 	public String getData() {
 		return mData;
-	}
-
-	public void setData(String data, Context c) {
-		mData = data;
-		if(data==null) { 
-			mDataView.setText(mFragment.getString(R.string.no_data));
-			mDataDetails.setText("");
-		}else {
-			if(mData.startsWith(VpnProfile.INLINE_TAG))
-				mDataView.setText(R.string.inline_file_data);
-			else
-				mDataView.setText(data);
-            if(mIsCertificate)
-			    mDataDetails.setText(X509Utils.getCertificateFriendlyName(c,data));
-		}
-
 	}
 
 	@Override

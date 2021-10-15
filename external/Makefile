@@ -1,4 +1,4 @@
-ANDROID_NDK ?= /opt/android-sdk-linux_x86/android-ndk-r16b
+NDK := /opt/android-sdk-linux_x86/android-ndk-r21b
 
 JAR_DIR := ../app/libs
 JNI_DIR := ../app/src/main/jniLibs
@@ -102,7 +102,7 @@ $(ARCH_STOKEN_TARGETS) : %/libstoken.so : %/toolchain/.installed stoken/configur
 			--enable-jni-standalone \
 			CFLAGS="$(CFLAGS_$*)" LDFLAGS="-Wl,--strip-debug"
 	$(call set_build_env,$*) $(MAKE) -C $*/build-stoken
-	$(call set_build_env,$*) $(MAKE) -C $*/build-stoken install-strip \
+	$(call set_build_env,$*) $(MAKE) -C $*/build-stoken install \
 		DESTDIR=$(TOPDIR)/$*/out
 	cp -L $*/out/lib/libstoken.so $*/
 
@@ -110,7 +110,7 @@ $(ARCH_OC_TARGETS) : %/libopenconnect.so : .openconnect-sources
 	rm -rf $*/openconnect
 	mkdir -p $*/openconnect
 	cp -a openconnect $*/
-	$(MAKE) -C $*/openconnect/android ARCH=$* NDK=$(ANDROID_NDK)
+	$(MAKE) -C $*/openconnect/android ARCH=$* NDK=$(NDK)
 	cp -Lf $*/openconnect/android/$(TRIPLET_$*)/out/lib/libopenconnect.so $@
 	cp -f $*/openconnect/android/$(TRIPLET_$*)/out/sbin/run_pie $*/
 

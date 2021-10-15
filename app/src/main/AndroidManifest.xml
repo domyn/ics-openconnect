@@ -11,9 +11,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="24" />
+    <uses-sdk android:targetSdkVersion="24" />
 
     <!-- Copy the <permission> block to your app when using the REMOTE API. Otherwise OpenConnect
         needs to be installed first -->
@@ -98,29 +96,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="org.acra.CrashReportDialog"
-            android:theme="@android:style/Theme.Dialog"
-            android:launchMode="singleInstance"
-            android:excludeFromRecents="true"
-            android:finishOnTaskLaunch="true" />
 
-        <service
-            android:name="app.openconnect.core.OpenVpnService"
-            android:permission="android.permission.BIND_VPN_SERVICE" >
-            <intent-filter>
-                <action android:name="android.net.VpnService" />
-            </intent-filter>
-        </service>
-<!--
-        <service
-            android:name=".api.ExternalOpenVPNService"
-            android:permission="app.openconnect.REMOTE_API" >
-            <intent-filter>
-                <action android:name="app.openconnect.api.IOpenVPNAPIService" />
-            </intent-filter>
-        </service>
--->
         <service android:name=".QSTileService"
                  android:label="@string/app"
                  android:icon="@drawable/ic_launcher"
@@ -157,24 +133,6 @@
             android:exported="true"
             android:grantUriPermissions="true"
             tools:ignore="ExportedContentProvider" />
-
-        <!--
-        <receiver android:name="core.GetRestrictionReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.GET_RESTRICTION_ENTRIES" />
-            </intent-filter>
-        </receiver>
-        -->
-
-        <meta-data
-            android:name="xposedmodule"
-            android:value="true" />
-        <meta-data
-            android:name="xposeddescription"
-            android:value="Bypass Android VPN confirmation dialog" />
-        <meta-data
-            android:name="xposedminversion"
-            android:value="30" />
 
     </application>
 
